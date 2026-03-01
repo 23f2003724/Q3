@@ -1,29 +1,27 @@
-name: Daily Commit by 23f2003724@ds.study.iitm.ac.in
+name: Daily Commit Workflow
 
 on:
   schedule:
-    - cron: '0 9 * * *'  # runs daily at 9:00 AM
+    - cron: '17 4 * * *'   # Runs daily at 04:17 UTC (specific time, no wildcards)
   workflow_dispatch:
 
+run-name: 23f2003724@ds.study.iitm.ac.in
+
 jobs:
-  daily-commit:
+  build:
     runs-on: ubuntu-latest
 
     steps:
-      # Step 1: Checkout repository
-      - name: Checkout Repository
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
-      # Step 2: Make a small change
-      - name: Update timestamp
-        run: |
-          echo "Last update: $(date)" >> daily_update.txt
+      - name: 23f2003724@ds.study.iitm.ac.in
+        run: echo "Running daily workflow"
 
-      # Step 3: Commit the change
-      - name: Commit changes
+      - name: Create daily commit
         run: |
-          git config --global user.name "GitHub Action"
-          git config --global user.email "23f2003724@ds.study.iitm.ac.in"
-          git add daily_update.txt
-          git commit -m "Automated daily commit"
+          echo "Daily update $(date)" >> daily.txt
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add daily.txt
+          git commit -m "Daily auto commit"
           git push
