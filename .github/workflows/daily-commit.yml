@@ -3,6 +3,7 @@ name: Daily Commit by 23f2003724@ds.study.iitm.ac.in
 on:
   schedule:
     - cron: '0 9 * * *'  # runs daily at 9:00 AM
+  workflow_dispatch:
 
 jobs:
   daily-commit:
